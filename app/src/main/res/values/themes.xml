@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Splash screen theme — applied to the Activity in the manifest. The splash is
+         installed via SplashScreen.installSplashScreen() before super.onCreate, and
+         the theme switches to Theme.Sentry afterwards. -->
+    <style name="Theme.Sentry.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/sentry_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_sentry_logo</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/sentry_background</item>
+        <item name="postSplashScreenTheme">@style/Theme.Sentry</item>
+    </style>
+
+    <style name="Theme.Sentry" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/sentry_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>
