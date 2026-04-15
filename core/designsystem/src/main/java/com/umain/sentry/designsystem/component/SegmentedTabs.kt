@@ -11,12 +11,19 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import com.umain.sentry.designsystem.theme.SentryColors
+import com.umain.sentry.designsystem.tooling.PreviewColumn
+import com.umain.sentry.designsystem.tooling.SentryPreview
 
 /** Pill-shaped segmented control used throughout the product for room tabs,
  *  activity tabs and the inner tabs inside the room detail screen. */
@@ -71,5 +78,28 @@ fun <T> SegmentedTabs(
                 }
             }
         }
+    }
+}
+
+@SentryPreview
+@Composable
+private fun SegmentedTabsPreview() {
+    PreviewColumn {
+        var rooms by remember { mutableStateOf("Doorbell") }
+        SegmentedTabs(
+            items = listOf("Doorbell", "Living room", "Kitchen", "Backyard"),
+            selected = rooms,
+            onSelect = { rooms = it },
+            label = { it },
+        )
+
+        var activity by remember { mutableStateOf("Activities") }
+        SegmentedTabs(
+            items = listOf("Live video", "Activities", "Devices"),
+            selected = activity,
+            onSelect = { activity = it },
+            label = { it },
+            badge = { tab -> 3.takeIf { tab == "Activities" } },
+        )
     }
 }

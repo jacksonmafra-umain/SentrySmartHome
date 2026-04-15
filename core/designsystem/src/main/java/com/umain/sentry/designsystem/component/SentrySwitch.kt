@@ -10,12 +10,18 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import com.umain.sentry.designsystem.theme.SentryColors
+import com.umain.sentry.designsystem.tooling.PreviewRow
+import com.umain.sentry.designsystem.tooling.SentryPreview
 
 /** Compact pill switch with a glass look when off and a saturated green when on.
  *  Small by design (36×20dp) — matches the switches on the Sentry device cards. */
@@ -45,5 +51,18 @@ fun SentrySwitch(
                 .clip(CircleShape)
                 .background(Color.White)
         )
+    }
+}
+
+@SentryPreview
+@Composable
+private fun SentrySwitchPreview() {
+    PreviewRow(horizontalSpacing = 24.dp) {
+        SentrySwitch(checked = false, onCheckedChange = {})
+        SentrySwitch(checked = true, onCheckedChange = {})
+
+        // Interactive — flips when clicked in the IDE preview's interactive mode.
+        var toggled by remember { mutableStateOf(true) }
+        SentrySwitch(checked = toggled, onCheckedChange = { toggled = it })
     }
 }
