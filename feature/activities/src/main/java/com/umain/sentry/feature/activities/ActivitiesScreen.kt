@@ -51,7 +51,7 @@ import com.umain.sentry.designsystem.theme.SentryColors
 import com.umain.sentry.navigation.SentryRoute
 import com.umain.sentry.ui.Spacings
 import kotlin.random.Random
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 fun NavGraphBuilder.activitiesScreen(onBack: () -> Unit) {
     composable<SentryRoute.Activities> {

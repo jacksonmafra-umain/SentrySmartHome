@@ -39,7 +39,7 @@ import com.umain.sentry.designsystem.component.HangingLampIllustration
 import com.umain.sentry.designsystem.theme.SentryColors
 import com.umain.sentry.navigation.SentryRoute
 import com.umain.sentry.ui.Spacings
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 fun NavGraphBuilder.deviceHubScreen(onBack: () -> Unit) {
     composable<SentryRoute.DeviceHub> {

@@ -57,7 +57,7 @@ import com.umain.sentry.designsystem.component.SentrySwitch
 import com.umain.sentry.designsystem.theme.SentryColors
 import com.umain.sentry.navigation.SentryRoute
 import com.umain.sentry.ui.Spacings
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 fun NavGraphBuilder.homeScreen(onNavigate: (SentryRoute) -> Unit) {
     composable<SentryRoute.Home> {
@@ -179,9 +179,9 @@ private fun HomeHeader(
                 .clip(CircleShape)
                 .background(
                     Brush.linearGradient(
-                        listOf(SentryColors.SwatchWarm, SentryColors.SwatchPink)
-                    )
-                )
+                        listOf(SentryColors.SwatchWarm, SentryColors.SwatchPink),
+                    ),
+                ),
         )
         Spacer(Modifier.width(10.dp))
         Text(
@@ -211,7 +211,7 @@ private fun HomeHeader(
                         .padding(6.dp)
                         .size(10.dp)
                         .clip(CircleShape)
-                        .background(SentryColors.AccentRed)
+                        .background(SentryColors.AccentRed),
                 )
             }
         }
@@ -224,9 +224,10 @@ private fun DoorbellCard(
     onFullscreen: () -> Unit,
 ) {
     GlassSurface(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(210.dp),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .height(210.dp),
         cornerRadius = 24.dp,
     ) {
         Box(Modifier.fillMaxSize()) {
@@ -240,9 +241,9 @@ private fun DoorbellCard(
                             listOf(
                                 Color(0xFF7A5A3A),
                                 Color(0xFF1D1D22),
-                            )
-                        )
-                    )
+                            ),
+                        ),
+                    ),
             )
             // Live badge
             Row(
@@ -274,7 +275,10 @@ private fun DoorbellCard(
 }
 
 @Composable
-private fun IconBubble(icon: ImageVector, onClick: () -> Unit) {
+private fun IconBubble(
+    icon: ImageVector,
+    onClick: () -> Unit,
+) {
     Box(
         Modifier
             .size(40.dp)
@@ -341,16 +345,17 @@ private data class DeviceSummary(
     val on: Boolean,
 )
 
-private fun Device.summary(): DeviceSummary = when (val s = state) {
-    is DeviceState.Light       -> DeviceSummary(name, "${(s.brightness * 100).toInt()}%", Icons.Rounded.Lightbulb, s.on)
-    is DeviceState.Lock        -> DeviceSummary(name, "${s.battery}%", Icons.Rounded.Fingerprint, s.locked)
-    is DeviceState.Thermostat  -> DeviceSummary(name, "${s.currentC.toInt()}°C", Icons.Rounded.Thermostat, s.heating)
-    is DeviceState.Vacuum      -> DeviceSummary(name, "${s.minutesLeft} minutes left", Icons.Rounded.Pets, s.running)
-    is DeviceState.LeakDetector  -> DeviceSummary(name, if (s.leaking) "Leak!" else "Normal", Icons.Rounded.WaterDrop, !s.leaking)
-    is DeviceState.SmokeDetector -> DeviceSummary(name, if (s.smoke) "Smoke!" else "Normal", Icons.Rounded.WaterDrop, !s.smoke)
-    is DeviceState.Doorbell    -> DeviceSummary(name, if (s.streamingLive) "Live" else "Idle", Icons.Rounded.CameraAlt, s.online)
-    is DeviceState.Curtains    -> DeviceSummary(name, if (s.auto) "Auto" else s.position.name, Icons.Rounded.Lightbulb, s.auto)
-}
+private fun Device.summary(): DeviceSummary =
+    when (val s = state) {
+        is DeviceState.Light -> DeviceSummary(name, "${(s.brightness * 100).toInt()}%", Icons.Rounded.Lightbulb, s.on)
+        is DeviceState.Lock -> DeviceSummary(name, "${s.battery}%", Icons.Rounded.Fingerprint, s.locked)
+        is DeviceState.Thermostat -> DeviceSummary(name, "${s.currentC.toInt()}°C", Icons.Rounded.Thermostat, s.heating)
+        is DeviceState.Vacuum -> DeviceSummary(name, "${s.minutesLeft} minutes left", Icons.Rounded.Pets, s.running)
+        is DeviceState.LeakDetector -> DeviceSummary(name, if (s.leaking) "Leak!" else "Normal", Icons.Rounded.WaterDrop, !s.leaking)
+        is DeviceState.SmokeDetector -> DeviceSummary(name, if (s.smoke) "Smoke!" else "Normal", Icons.Rounded.WaterDrop, !s.smoke)
+        is DeviceState.Doorbell -> DeviceSummary(name, if (s.streamingLive) "Live" else "Idle", Icons.Rounded.CameraAlt, s.online)
+        is DeviceState.Curtains -> DeviceSummary(name, if (s.auto) "Auto" else s.position.name, Icons.Rounded.Lightbulb, s.auto)
+    }
 
 @Composable
 private fun BottomDock(
@@ -369,7 +374,7 @@ private fun BottomDock(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         IconBubble(icon = Icons.Rounded.Pets, onClick = onEmergency)
-        IconBubble(icon = Icons.Rounded.Lock,          onClick = onLock)
-        IconBubble(icon = Icons.Rounded.Lightbulb,     onClick = onLightbulb)
+        IconBubble(icon = Icons.Rounded.Lock, onClick = onLock)
+        IconBubble(icon = Icons.Rounded.Lightbulb, onClick = onLightbulb)
     }
 }

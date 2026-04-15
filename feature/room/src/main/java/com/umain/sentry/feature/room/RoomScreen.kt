@@ -42,7 +42,7 @@ import com.umain.sentry.feature.room.pane.ThermostatPane
 import com.umain.sentry.navigation.RoomPane
 import com.umain.sentry.navigation.SentryRoute
 import com.umain.sentry.ui.Spacings
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 fun NavGraphBuilder.roomScreen(onBack: () -> Unit) {
     composable<SentryRoute.Room> {
