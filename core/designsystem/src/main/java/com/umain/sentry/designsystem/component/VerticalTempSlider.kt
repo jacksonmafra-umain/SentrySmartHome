@@ -11,9 +11,15 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.umain.sentry.designsystem.theme.SentryColors
+import com.umain.sentry.designsystem.tooling.PreviewRow
+import com.umain.sentry.designsystem.tooling.SentryPreview
 
 /**
  * Vertical temperature slider with a cold→warm gradient and a bubble handle,
@@ -83,5 +89,20 @@ fun VerticalTempSlider(
                 style = Stroke(width = 2f),
             )
         }
+    }
+}
+
+@SentryPreview
+@Composable
+private fun VerticalTempSliderPreview() {
+    PreviewRow(horizontalSpacing = 24.dp) {
+        var cold by remember { mutableStateOf(17f) }
+        VerticalTempSlider(value = cold, onValueChange = { cold = it })
+
+        var cozy by remember { mutableStateOf(22f) }
+        VerticalTempSlider(value = cozy, onValueChange = { cozy = it })
+
+        var warm by remember { mutableStateOf(28f) }
+        VerticalTempSlider(value = warm, onValueChange = { warm = it })
     }
 }

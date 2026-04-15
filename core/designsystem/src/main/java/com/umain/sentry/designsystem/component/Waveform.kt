@@ -4,11 +4,15 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.umain.sentry.designsystem.tooling.PreviewBox
+import com.umain.sentry.designsystem.tooling.SentryPreview
+import kotlin.random.Random
 
 /**
  * Decorative waveform visualization shown above the Activities screen content.
@@ -41,5 +45,17 @@ fun WaveformBar(
                 cap = androidx.compose.ui.graphics.StrokeCap.Round,
             )
         }
+    }
+}
+
+@SentryPreview
+@Composable
+private fun WaveformBarPreview() {
+    PreviewBox {
+        val levels = remember {
+            val r = Random(42)
+            List(64) { r.nextFloat() * 0.9f + 0.1f }
+        }
+        WaveformBar(levels = levels, height = 36.dp)
     }
 }
