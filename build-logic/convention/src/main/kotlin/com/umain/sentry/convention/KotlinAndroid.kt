@@ -10,25 +10,26 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /**
  * Shared Android configuration applied by both the application and library
- * convention plugins. AGP 9 dropped the six-parameter generic on
- * [CommonExtension] and moved the Java toolchain to the project level, so
- * we just set `compileOptions` here and let Kotlin's `jvmTarget` pin JVM 21.
+ * convention plugins.
+ *
+ * AGP 9 dropped:
+ *  - the six-parameter generic on [CommonExtension]
+ *  - the `Action<T>` block-DSL forms (`defaultConfig { ... }`, `compileOptions { ... }`, …)
+ *
+ * So we set everything via direct property access, which is the surviving
+ * API on AGP 9.
  */
 internal fun Project.configureKotlinAndroid(
     commonExtension: CommonExtension,
 ) {
-    commonExtension.apply {
-        compileSdk = libs.findVersion("compileSdk").get().toString().toInt()
+    commonExtension.compileSdk =
+        libs.findVersion("compileSdk").get().toString().toInt()
 
-        defaultConfig {
-            minSdk = libs.findVersion("minSdk").get().toString().toInt()
-        }
+    commonExtension.defaultConfig.minSdk =
+        libs.findVersion("minSdk").get().toString().toInt()
 
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_21
-            targetCompatibility = JavaVersion.VERSION_21
-        }
-    }
+    commonExtension.compileOptions.sourceCompatibility = JavaVersion.VERSION_21
+    commonExtension.compileOptions.targetCompatibility = JavaVersion.VERSION_21
 
     tasks.withType<KotlinCompile>().configureEach {
         compilerOptions {
