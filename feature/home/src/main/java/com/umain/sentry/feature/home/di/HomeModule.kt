@@ -1,12 +1,17 @@
 package com.umain.sentry.feature.home.di
 
 import com.umain.sentry.data.di.DataModule
+import com.umain.sentry.feature.home.HomeViewModel
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
+import org.koin.core.module.Module as KoinModule
+import org.koin.core.module.dsl.viewModelOf
+import org.koin.dsl.module
 
-/** `includes = [DataModule::class]` exposes the `SmartHomeRepository` binding
- *  to the Koin Compiler Plugin when this module compiles in isolation — without
- *  it, the plugin reports "Missing dependency: SmartHomeRepository". */
 @Module(includes = [DataModule::class])
 @ComponentScan("com.umain.sentry.feature.home")
 class HomeModule
+
+val homeModule: KoinModule = module {
+    viewModelOf(::HomeViewModel)
+}
