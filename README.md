@@ -70,11 +70,11 @@ compile-time validated dependency injection, full screenshot-ready previews.
 
 | Home (Sia's home) | Activities feed | Device Hub |
 | :-: | :-: | :-: |
-| ![Home](docs/screenshots/home.png) | ![Activities](docs/screenshots/activities.png) | ![Device Hub](docs/screenshots/devicehub.png) |
+| ![Home]([docs/screenshots/home.png](https://github.com/user-attachments/assets/531eca00-6e00-4f8f-9cf9-fcf5521b237e)) | ![Activities]([docs/screenshots/activities.png](https://github.com/user-attachments/assets/7d0cd1a2-a5d8-4101-911a-02b9096bb3fc)) | ![Device Hub]([docs/screenshots/devicehub.png](https://github.com/user-attachments/assets/e8197f79-9c10-4560-a990-8d937c55cd6f)) |
 
 | Room › Main light | Room › Thermostat | Room › Curtains |
 | :-: | :-: | :-: |
-| ![Light](docs/screenshots/room-light.png) | ![Thermostat](docs/screenshots/room-thermostat.png) | ![Curtains](docs/screenshots/room-curtains.png) |
+| ![Light]([docs/screenshots/room-light.png](https://github.com/user-attachments/assets/6bece482-672e-415c-a11b-1fa399ca726f)) | ![Thermostat]([docs/screenshots/room-thermostat.png](https://github.com/user-attachments/assets/f35d4580-5285-4814-b3f3-9a38bc8aef18)) | ![Curtains]([docs/screenshots/room-curtains.png](https://github.com/user-attachments/assets/e9723456-a8e2-4e44-a955-3a8b23394f7f)) |
 
 User flow diagram → [`docs/User-Flow.md`](docs/User-Flow.md) (Pencil source at
 `design/sentry.pen`).
