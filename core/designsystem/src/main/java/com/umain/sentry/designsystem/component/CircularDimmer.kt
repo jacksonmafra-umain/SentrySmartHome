@@ -20,6 +20,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.umain.sentry.designsystem.theme.SentryColors
+import com.umain.sentry.designsystem.tooling.PreviewBox
+import com.umain.sentry.designsystem.tooling.SentryPreview
 import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
@@ -111,5 +113,18 @@ fun CircularDimmer(
             drawCircle(Color.White, radius = 9f, center = knob)
         }
         content()
+    }
+}
+
+@SentryPreview
+@Composable
+private fun CircularDimmerPreview() {
+    PreviewBox {
+        // 55% brightness — matches the default Bedroom lamp state.
+        var progress by remember { mutableStateOf(0.55f) }
+        CircularDimmer(
+            progress = progress,
+            onProgressChange = { progress = it },
+        )
     }
 }

@@ -12,6 +12,8 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.umain.sentry.designsystem.theme.SentryColors
+import com.umain.sentry.designsystem.tooling.PreviewRow
+import com.umain.sentry.designsystem.tooling.SentryPreview
 
 /**
  * Stylised hanging pendant lamp used on the "Main light" and "Device Hub" screens.
@@ -98,5 +100,19 @@ fun HangingLampIllustration(
                 ),
             )
         }
+    }
+}
+
+@SentryPreview
+@Composable
+private fun HangingLampIllustrationPreview() {
+    PreviewRow(horizontalSpacing = 24.dp) {
+        HangingLampIllustration(glow = 0f)             // lamp off
+        HangingLampIllustration(glow = 0.55f)          // dim
+        HangingLampIllustration(glow = 1f)             // full brightness
+        HangingLampIllustration(
+            glow = 1f,
+            warmColor = SentryColors.SwatchBlue,       // cool-light variant
+        )
     }
 }
