@@ -3,6 +3,7 @@ package com.umain.sentry.convention
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
+import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -18,10 +19,10 @@ internal fun Project.configureKotlinAndroid(
             minSdk = libs.findVersion("minSdk").get().toString().toInt()
         }
 
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_21
-            targetCompatibility = JavaVersion.VERSION_21
-            isCoreLibraryDesugaringEnabled = false
+        java {
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(libs.findVersion("java").get().toString().toInt())
+            }
         }
     }
 

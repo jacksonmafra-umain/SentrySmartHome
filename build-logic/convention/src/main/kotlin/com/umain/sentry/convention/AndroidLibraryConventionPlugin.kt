@@ -14,7 +14,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
         extensions.configure<LibraryExtension> {
             configureKotlinAndroid(this)
-            defaultConfig.targetSdk = libs.findVersion("targetSdk").get().toString().toInt()
+            // targetSdk is deprecated in AGP 9.x and is now inferred from compileSdk.
+            // defaultConfig.targetSdk = libs.findVersion("targetSdk").get().toString().toInt()
         }
     }
 }

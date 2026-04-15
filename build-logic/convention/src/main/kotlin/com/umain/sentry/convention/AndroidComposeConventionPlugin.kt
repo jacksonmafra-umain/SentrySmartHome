@@ -6,6 +6,7 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.configure // Import configure
 
 class AndroidComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -13,10 +14,12 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
             apply("org.jetbrains.kotlin.plugin.compose")
         }
 
-        val commonExtension = extensions.getByType(CommonExtension::class.java)
-        commonExtension.apply {
+        extensions.configure(CommonExtension::class.java) { // Use configure for CommonExtension
             buildFeatures {
                 compose = true
+            }
+            composeOptions {
+                kotlinCompilerExtensionVersion = libs.findVersion("kotlin").get().toString()
             }
         }
 
