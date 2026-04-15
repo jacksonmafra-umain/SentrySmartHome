@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="sentry_background">#0A0A0C</color>
+    <color name="sentry_accent">#FF6B4A</color>
+    <color name="sentry_launcher_background">#0A0A0C</color>
+</resources>
