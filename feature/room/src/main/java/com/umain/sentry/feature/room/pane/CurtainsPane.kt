@@ -1,5 +1,8 @@
 package com.umain.sentry.feature.room.pane
 
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
@@ -119,11 +122,18 @@ private fun CurtainsIllustration(
     position: CurtainPosition,
     modifier: Modifier = Modifier,
 ) {
-    val openness = when (position) {
+    val target = when (position) {
         CurtainPosition.Open   -> 1f
         CurtainPosition.Half   -> 0.5f
         CurtainPosition.Closed -> 0f
     }
+    // Smooth open/close — the curtains slide on the rod instead of snapping
+    // when the user taps Open fully / Half / Closed / Auto.
+    val openness by animateFloatAsState(
+        targetValue = target,
+        animationSpec = tween(durationMillis = 600, easing = FastOutSlowInEasing),
+        label = "curtainOpenness",
+    )
     Canvas(modifier) {
         val w = size.width
         val h = size.height
