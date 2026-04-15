@@ -26,6 +26,8 @@ import com.umain.sentry.data.model.DeviceState
 import com.umain.sentry.designsystem.component.ActionChip
 import com.umain.sentry.designsystem.component.GlassSurface
 import com.umain.sentry.designsystem.component.VerticalTempSlider
+import com.umain.sentry.designsystem.tooling.PreviewBox
+import com.umain.sentry.designsystem.tooling.SentryPreview
 import com.umain.sentry.designsystem.theme.SentryColors
 
 /**
@@ -156,5 +158,30 @@ private fun StatCard(
                 color = SentryColors.TextSecondary,
             )
         }
+    }
+}
+
+@SentryPreview
+@Composable
+private fun ThermostatPanePreview() {
+    PreviewBox {
+        ThermostatPane(
+            device = com.umain.sentry.data.model.Device(
+                id = "thermo_bedroom",
+                name = "Thermostat",
+                roomId = "bedroom",
+                state = com.umain.sentry.data.model.DeviceState.Thermostat(
+                    targetC = 22f,
+                    currentC = 22f,
+                    outsideC = 17f,
+                    humidity = 0.78f,
+                    heating = true,
+                    cooling = false,
+                ),
+            ),
+            onTargetChange = {},
+            onToggleHeating = {},
+            onToggleCooling = {},
+        )
     }
 }
