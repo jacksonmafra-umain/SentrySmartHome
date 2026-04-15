@@ -11,7 +11,9 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import org.koin.core.annotation.KoinViewModel
 
+@KoinViewModel
 class HomeViewModel(
     private val repo: SmartHomeRepository,
 ) : ViewModel() {

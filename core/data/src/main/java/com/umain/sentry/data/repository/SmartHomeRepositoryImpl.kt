@@ -10,13 +10,16 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import org.koin.core.annotation.Singleton
 
 /**
  * In-memory fake repository, seeded with the devices and activity events
- * visible in the Phenomenon Studio mockup. Bound in `dataModule` as a
- * Koin single, with the Koin Compiler Plugin verifying the wiring at
- * build time.
+ * visible in the Phenomenon Studio mockup. `@Singleton` (bound to the
+ * [SmartHomeRepository] interface) registers it with Koin via the Koin
+ * Compiler Plugin — wiring is generated at compile time with KSP-free
+ * static analysis.
  */
+@Singleton(binds = [SmartHomeRepository::class])
 class SmartHomeRepositoryImpl : SmartHomeRepository {
 
     override val homeName: String = "Sia's home"

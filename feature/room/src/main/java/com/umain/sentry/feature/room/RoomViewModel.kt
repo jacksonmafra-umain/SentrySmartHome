@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import org.koin.core.annotation.KoinViewModel
 
 /**
  * Backs the Bedroom/Living-room detail screen. Derives the room + its light,
@@ -22,6 +23,7 @@ import kotlinx.coroutines.flow.stateIn
  * All writes dispatch through the repository so the home dashboard reflects
  * them instantly.
  */
+@KoinViewModel
 class RoomViewModel(
     private val repo: SmartHomeRepository,
     savedStateHandle: SavedStateHandle,

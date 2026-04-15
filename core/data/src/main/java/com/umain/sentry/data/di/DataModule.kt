@@ -1,21 +1,15 @@
 package com.umain.sentry.data.di
 
-import com.umain.sentry.data.repository.SmartHomeRepository
-import com.umain.sentry.data.repository.SmartHomeRepositoryImpl
-import org.koin.core.module.Module
-import org.koin.dsl.module
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Module
 
 /**
- * Hand-written Koin module for `:core:data`.
- *
- * The Koin Compiler Plugin (1.0.0-RC1) validates every `get<T>()` /
- * `koinInject<T>()` / `koinViewModel<T>()` call against the declared
- * bindings at compile time. It only recognises the explicit-lambda DSL
- * form (`single<T> { ... }`, `viewModel<T> { ... }`); the shorter
- * `singleOf(::X)` / `viewModelOf(::X)` reflection forms are invisible
- * to the static analyser, which is why we write every binding out in
- * full here and in the feature modules.
+ * Koin aggregator for `:core:data`. `@ComponentScan` tells the Koin
+ * compiler plugin to pick up every `@Singleton` / `@Factory` /
+ * `@KoinViewModel` under `com.umain.sentry.data` and generate the wiring
+ * for this module at compile time — the `DataModule().module` extension
+ * is emitted into `org.koin.ksp.generated`.
  */
-val dataModule: Module = module {
-    single<SmartHomeRepository> { SmartHomeRepositoryImpl() }
-}
+@Module
+@ComponentScan("com.umain.sentry.data")
+class DataModule

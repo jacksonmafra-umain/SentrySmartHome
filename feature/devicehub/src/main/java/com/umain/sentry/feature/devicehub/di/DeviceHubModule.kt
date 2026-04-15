@@ -1,10 +1,8 @@
 package com.umain.sentry.feature.devicehub.di
 
-import com.umain.sentry.feature.devicehub.DeviceHubViewModel
-import org.koin.core.module.Module
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Module
 
-val deviceHubModule: Module = module {
-    viewModel<DeviceHubViewModel> { DeviceHubViewModel(get()) }
-}
+@Module
+@ComponentScan("com.umain.sentry.feature.devicehub")
+class DeviceHubModule

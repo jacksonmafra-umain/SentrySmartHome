@@ -1,10 +1,8 @@
 package com.umain.sentry.feature.activities.di
 
-import com.umain.sentry.feature.activities.ActivitiesViewModel
-import org.koin.core.module.Module
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Module
 
-val activitiesModule: Module = module {
-    viewModel<ActivitiesViewModel> { ActivitiesViewModel(get()) }
-}
+@Module
+@ComponentScan("com.umain.sentry.feature.activities")
+class ActivitiesModule
