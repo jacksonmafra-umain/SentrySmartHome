@@ -13,8 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import com.umain.sentry.designsystem.theme.SentryColors
+import com.umain.sentry.designsystem.tooling.PreviewBox
+import com.umain.sentry.designsystem.tooling.SentryPreview
 
 /** Row of glossy colour dots used to choose the lamp's light colour. The
  *  selected swatch gets a thin white ring. */
@@ -56,3 +62,16 @@ val DefaultLightColors: List<Color> = listOf(
     SentryColors.SwatchPink,
     SentryColors.SwatchPurple,
 )
+
+@SentryPreview
+@Composable
+private fun ColorSwatchRowPreview() {
+    PreviewBox {
+        var selected by remember { mutableStateOf(SentryColors.SwatchWarm) }
+        ColorSwatchRow(
+            colors = DefaultLightColors,
+            selected = selected,
+            onSelect = { selected = it },
+        )
+    }
+}

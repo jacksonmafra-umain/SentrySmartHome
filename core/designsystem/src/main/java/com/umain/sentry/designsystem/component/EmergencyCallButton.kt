@@ -32,6 +32,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.umain.sentry.designsystem.tooling.PreviewBox
+import com.umain.sentry.designsystem.tooling.SentryPreview
 
 /**
  * Prominent red pill that says "Emergency call" with three animated chevrons
@@ -104,5 +106,13 @@ fun EmergencyCallButton(
                 )
             }
         }
+    }
+}
+
+@SentryPreview
+@Composable
+private fun EmergencyCallButtonPreview() {
+    PreviewBox {
+        EmergencyCallButton(onClick = {})
     }
 }

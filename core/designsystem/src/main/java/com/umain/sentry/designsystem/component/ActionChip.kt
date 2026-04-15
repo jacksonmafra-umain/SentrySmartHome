@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,9 +17,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.material.icons.rounded.PowerSettingsNew
+import androidx.compose.material.icons.rounded.Timer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.umain.sentry.designsystem.theme.SentryColors
+import com.umain.sentry.designsystem.tooling.PreviewColumn
+import com.umain.sentry.designsystem.tooling.PreviewRow
+import com.umain.sentry.designsystem.tooling.SentryPreview
 
 /**
  * Flexible icon-plus-text chip. When [stacked] is true the icon sits above the
@@ -83,5 +89,49 @@ fun ActionChip(
             horizontalArrangement = Arrangement.spacedBy(10.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) { inner() }
+    }
+}
+
+@SentryPreview
+@Composable
+private fun ActionChipPreview() {
+    PreviewColumn {
+        // Horizontal variant — used by the Thermostat pane (Timer / Power).
+        PreviewRow(padding = androidx.compose.foundation.layout.PaddingValues(0.dp)) {
+            ActionChip(
+                title = "Timer",
+                subtitle = "Off",
+                icon = Icons.Rounded.Timer,
+                selected = false,
+                onClick = {},
+            )
+            ActionChip(
+                title = "Power",
+                subtitle = "On",
+                icon = Icons.Rounded.PowerSettingsNew,
+                selected = true,
+                onClick = {},
+            )
+        }
+
+        // Stacked variant — used on the Curtains pane (Open/Half/Closed/Auto).
+        PreviewRow(padding = androidx.compose.foundation.layout.PaddingValues(0.dp)) {
+            ActionChip(
+                title = "Heating",
+                subtitle = "On",
+                icon = Icons.Rounded.PowerSettingsNew,
+                selected = true,
+                onClick = {},
+                stacked = true,
+            )
+            ActionChip(
+                title = "Cooling",
+                subtitle = "Off",
+                icon = Icons.Rounded.PowerSettingsNew,
+                selected = false,
+                onClick = {},
+                stacked = true,
+            )
+        }
     }
 }
