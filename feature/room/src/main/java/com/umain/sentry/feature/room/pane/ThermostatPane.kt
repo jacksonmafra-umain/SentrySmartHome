@@ -44,7 +44,11 @@ fun ThermostatPane(
     onToggleCooling: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val state = device?.state as? DeviceState.Thermostat ?: return
+    val state = device?.state as? DeviceState.Thermostat
+    if (state == null) {
+        PaneEmptyState(message = "No thermostat configured for this room.", modifier = modifier)
+        return
+    }
 
     Column(
         modifier.fillMaxSize().padding(top = 8.dp),

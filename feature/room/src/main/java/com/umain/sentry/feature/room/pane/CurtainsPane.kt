@@ -59,7 +59,11 @@ fun CurtainsPane(
     onBrightness: (Float) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val state = device?.state as? DeviceState.Curtains ?: return
+    val state = device?.state as? DeviceState.Curtains
+    if (state == null) {
+        PaneEmptyState(message = "No curtains configured for this room.", modifier = modifier)
+        return
+    }
 
     Column(
         modifier.fillMaxSize().padding(top = 8.dp),

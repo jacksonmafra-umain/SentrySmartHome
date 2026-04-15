@@ -46,7 +46,11 @@ fun LightPane(
     onTimerToggle: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val state = device?.state as? DeviceState.Light ?: return
+    val state = device?.state as? DeviceState.Light
+    if (state == null) {
+        PaneEmptyState(message = "No light configured for this room.", modifier = modifier)
+        return
+    }
 
     Column(
         modifier.fillMaxSize().padding(top = 16.dp),

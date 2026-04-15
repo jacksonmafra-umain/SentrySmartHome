@@ -47,7 +47,7 @@ class SmartHomeRepositoryImpl : SmartHomeRepository {
 
     private fun seedRooms(): List<Room> = listOf(
         Room("doorbell",     "Doorbell",     listOf("doorbell_1")),
-        Room("living_room",  "Living room",  listOf("lamp_living", "thermo_living", "lock_front")),
+        Room("living_room",  "Living room",  listOf("lamp_living", "thermo_living", "lock_front", "curtains_living")),
         Room("kitchen",      "Kitchen",      listOf("leak_kitchen", "smoke_kitchen", "vacuum_1")),
         Room("backyard",     "Backyard",     emptyList()),
         Room("bedroom",      "Bedroom",      listOf("lamp_bedroom", "thermo_bedroom", "curtains_bedroom")),
@@ -84,6 +84,10 @@ class SmartHomeRepositoryImpl : SmartHomeRepository {
         Device("lamp_living", "Living room lamp",
             roomId = "living_room",
             state = DeviceState.Light(on = true, brightness = 0.7f, colorHex = 0xFFFFD27AL, timerOn = false),
+        ),
+        Device("curtains_living", "Curtains",
+            roomId = "living_room",
+            state = DeviceState.Curtains(position = CurtainPosition.Open, brightness = 0.8f, auto = false),
         ),
         Device("lamp_bedroom", "Main light",
             roomId = "bedroom",
