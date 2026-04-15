@@ -1,26 +1,36 @@
 package com.umain.sentry.convention
 
+import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
+import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
-import org.gradle.kotlin.dsl.configure // Import configure
 
+/**
+ * Enables Jetpack Compose on an Android module. AGP 9 removed the
+ * `composeOptions.kotlinCompilerExtensionVersion` DSL — the Compose compiler
+ * is now provided by the `org.jetbrains.kotlin.plugin.compose` Gradle plugin,
+ * which we apply here.
+ */
 class AndroidComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
-        with(pluginManager) {
-            apply("org.jetbrains.kotlin.plugin.compose")
+        pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
+
+        val commonExtension: CommonExtension = when {
+            pluginManager.hasPlugin("com.android.application") ->
+                extensions.getByType(ApplicationExtension::class.java)
+            pluginManager.hasPlugin("com.android.library") ->
+                extensions.getByType(LibraryExtension::class.java)
+            else -> error(
+                "sentry.android.compose requires com.android.application or com.android.library",
+            )
         }
 
-        extensions.configure(CommonExtension::class.java) { // Use configure for CommonExtension
-            buildFeatures {
-                compose = true
-            }
-            composeOptions {
-                kotlinCompilerExtensionVersion = libs.findVersion("kotlin").get().toString()
-            }
+        commonExtension.buildFeatures {
+            compose = true
         }
 
         val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
