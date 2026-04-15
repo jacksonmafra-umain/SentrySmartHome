@@ -28,6 +28,8 @@ import com.umain.sentry.designsystem.component.CircularDimmer
 import com.umain.sentry.designsystem.component.ColorSwatchRow
 import com.umain.sentry.designsystem.component.DefaultLightColors
 import com.umain.sentry.designsystem.component.HangingLampIllustration
+import com.umain.sentry.designsystem.tooling.PreviewBox
+import com.umain.sentry.designsystem.tooling.SentryPreview
 import com.umain.sentry.designsystem.theme.SentryColors
 
 /**
@@ -108,5 +110,29 @@ fun LightPane(
         }
 
         Spacer(Modifier.size(8.dp))
+    }
+}
+
+@SentryPreview
+@Composable
+private fun LightPanePreview() {
+    PreviewBox {
+        LightPane(
+            device = Device(
+                id = "lamp_bedroom",
+                name = "Main light",
+                roomId = "bedroom",
+                state = DeviceState.Light(
+                    on = true,
+                    brightness = 0.55f,
+                    colorHex = 0xFFFFD27AL,
+                    timerOn = false,
+                ),
+            ),
+            onToggle = {},
+            onBrightness = {},
+            onColor = {},
+            onTimerToggle = {},
+        )
     }
 }
