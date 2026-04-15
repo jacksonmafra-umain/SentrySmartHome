@@ -42,6 +42,8 @@ import com.umain.sentry.data.model.CurtainPosition
 import com.umain.sentry.data.model.Device
 import com.umain.sentry.data.model.DeviceState
 import com.umain.sentry.designsystem.component.ActionChip
+import com.umain.sentry.designsystem.tooling.PreviewBox
+import com.umain.sentry.designsystem.tooling.SentryPreview
 import com.umain.sentry.designsystem.theme.SentryColors
 
 /**
@@ -239,6 +241,34 @@ private fun BrightnessSlider(
             contentDescription = null,
             tint = SentryColors.TextSecondary,
             modifier = Modifier.size(20.dp),
+        )
+    }
+}
+
+@SentryPreview
+@Composable
+private fun CurtainsPanePreview() {
+    // Interactive so the open/close animation runs in live-preview mode.
+    var state by remember {
+        mutableStateOf(
+            com.umain.sentry.data.model.DeviceState.Curtains(
+                position = CurtainPosition.Half,
+                brightness = 0.6f,
+                auto = false,
+            ),
+        )
+    }
+    PreviewBox {
+        CurtainsPane(
+            device = com.umain.sentry.data.model.Device(
+                id = "curtains_bedroom",
+                name = "Curtains",
+                roomId = "bedroom",
+                state = state,
+            ),
+            onPosition = { state = state.copy(position = it, auto = false) },
+            onAuto = { state = state.copy(auto = !state.auto) },
+            onBrightness = { state = state.copy(brightness = it) },
         )
     }
 }
