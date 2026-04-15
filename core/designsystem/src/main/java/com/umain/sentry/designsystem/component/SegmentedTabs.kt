@@ -3,10 +3,12 @@ package com.umain.sentry.designsystem.component
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -36,8 +38,10 @@ fun <T> SegmentedTabs(
     label: (T) -> String,
     badge: (T) -> Int? = { null },
 ) {
+    // Horizontal scroll keeps long tab labels (Living room, Backyard) on a
+    // single line when the screen is narrower than the full tab row.
     Row(
-        modifier = modifier,
+        modifier = modifier.horizontalScroll(rememberScrollState()),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items.forEach { item ->
