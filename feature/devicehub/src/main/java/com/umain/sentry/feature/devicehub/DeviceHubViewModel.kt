@@ -8,13 +8,11 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import org.koin.android.annotation.KoinViewModel
 
 /**
  * The Device Hub shows the whole home as one big control — pick the first
  * lamp from the house to drive the hero dimmer.
  */
-@KoinViewModel
 class DeviceHubViewModel(
     private val repo: SmartHomeRepository,
 ) : ViewModel() {

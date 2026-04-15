@@ -12,7 +12,9 @@ dependencies {
     compileOnly(libs.android.gradle.plugin)
     compileOnly(libs.kotlin.gradle.plugin)
     compileOnly(libs.kotlin.compose.compiler.plugin)
-    compileOnly(libs.ksp.gradle.plugin)
+    // Gradle plugin marker so the convention plugins can apply
+    // "io.insert-koin.compiler.plugin" via pluginManager.
+    compileOnly(libs.koin.compiler.gradle.plugin)
 }
 
 gradlePlugin {

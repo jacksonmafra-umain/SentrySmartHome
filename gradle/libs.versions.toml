@@ -1,8 +1,7 @@
 [versions]
 # Toolchain
 kotlin = "2.3.20"
-agp = "9.1.1"
-ksp = "2.3.6"
+agp = "9.1.0-alpha08"
 java = "21"
 
 # Android
@@ -11,22 +10,24 @@ targetSdk = "36"
 compileSdk = "36"
 
 # AndroidX / Compose
-androidxCoreKtx = "1.17.0"
-androidxActivityCompose = "1.11.0"
-androidxCoreSplashscreen = "1.0.1"
+androidxCoreKtx = "1.18.0"
+androidxActivityCompose = "1.13.0"
+androidxCoreSplashscreen = "1.2.0"
 androidxLifecycle = "2.10.0"
-androidxNavigation = "2.10.0"
-composeBom = "2025.10.00"
+androidxNavigation = "2.10.0-alpha02"
+composeBom = "2026.03.01"
 material3 = "1.4.0"
 
 # Koin
-koin = "4.1.1"
-koinAnnotations = "2.1.0"
-koinCompilerPlugin = "1.0.0-RC1"
+# Koin Compiler Plugin 1.0.0-RC1 is a *Kotlin compiler plugin* (not KSP).
+# Applied via the io.insert-koin.compiler.plugin Gradle plugin. Enables
+# `single<T>()` / `@Singleton` / `@Factory` with compile-time safety.
+koin = "4.2.1"
+koinCompiler = "1.0.0-RC1"
 
 # Kotlinx
 kotlinxCoroutines = "1.10.2"
-kotlinxSerialization = "1.9.0"
+kotlinxSerialization = "1.11.0"
 
 # Image loading
 coil = "3.4.0"
@@ -52,8 +53,6 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
-koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koinAnnotations" }
-koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koinCompilerPlugin" }
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
@@ -66,15 +65,16 @@ coil-network = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = 
 android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-compose-compiler-plugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
-ksp-gradle-plugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+# Gradle plugin marker for the Koin compiler plugin — lets the convention
+# plugins apply it via pluginManager.apply("io.insert-koin.compiler.plugin").
+koin-compiler-gradle-plugin = { module = "io.insert-koin.compiler.plugin:io.insert-koin.compiler.plugin.gradle.plugin", version.ref = "koinCompiler" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+koin-compiler = { id = "io.insert-koin.compiler.plugin", version.ref = "koinCompiler" }
 
 # Convention plugins
 sentry-android-application = { id = "sentry.android.application", version = "unspecified" }
