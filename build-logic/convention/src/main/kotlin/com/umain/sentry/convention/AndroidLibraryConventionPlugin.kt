@@ -7,10 +7,9 @@ import org.gradle.kotlin.dsl.configure
 
 class AndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
-        with(pluginManager) {
-            apply("com.android.library")
-            apply("org.jetbrains.kotlin.android")
-        }
+        // Kotlin Android is built into AGP 9 — applying the standalone plugin
+        // now fails the build.
+        pluginManager.apply("com.android.library")
 
         extensions.configure<LibraryExtension> {
             configureKotlinAndroid(this)
