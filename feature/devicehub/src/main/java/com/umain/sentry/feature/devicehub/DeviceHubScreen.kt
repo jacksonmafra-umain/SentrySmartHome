@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -57,6 +58,7 @@ private fun DeviceHubRoute(
     Column(
         Modifier
             .fillMaxSize()
+            .safeDrawingPadding()
             .padding(horizontal = Spacings.screenHorizontal, vertical = Spacings.screenVertical),
         verticalArrangement = Arrangement.spacedBy(Spacings.sectionGap),
     ) {
