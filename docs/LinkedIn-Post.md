@@ -1,81 +1,66 @@
 # LinkedIn post — draft
 
 > Keep this under ~1,300 chars for the unexpanded view on the LinkedIn
-> feed. Emojis are fine but don't lean on them. The Dribbble + repo links
-> auto-unfurl — keep them at the end.
+> feed. Informal tone, no emojis, no library versions — the post is
+> about the *what* and the *why*, not the dependency list.
 
 ---
 
 ## Short version (for the feed)
 
-🏠 Just shipped **Sentry Smart Home** — a Jetpack Compose recreation of
-the gorgeous *Sentry* concept designed by **Phenomenon Studio**.
+Spent the weekend rebuilding Phenomenon Studio's Sentry smart-home
+concept in Jetpack Compose. Dark glass everywhere, circular dimmers,
+curtains that slide when you tap them, a vertical temperature slider
+that actually feels nice.
 
-Built to stress-test the bleeding edge of the Android toolchain:
+No backend, no real IoT — the whole point was the architecture. Six
+screens, a small design system, compile-time validated DI, a proper
+multi-module setup. The kind of scaffolding that's a pain to put
+together for a "real" app but pays for itself the second time you add
+a feature.
 
-🧪 Kotlin **2.3.20** (K2) · Gradle **9.3** · AGP **9.1** · JDK 21
-🪝 Koin **4.2** + the brand-new **Koin Compiler Plugin 1.0.0-RC1** — compile-time DI validation, no KSP
-🎨 Jetpack Compose BOM 2026.03, Material 3, multi-module (`:app` + 4 `:core:*` + 4 `:feature:*`)
-🎛 Custom Canvas controls — circular dimmer, vertical temp slider, sliding curtains, animated emergency pill
-🌅 Edge-to-edge, splash screen, adaptive icon, full `@SentryPreview` coverage
+All the visual design credit goes to Phenomenon Studio. I just
+translated it into Kotlin.
 
-No backend, no real IoT — just architecture and design done right.
-
-Design © **[Phenomenon Studio](https://phenomenon.studio/)** ·
-[Dribbble shot](https://dribbble.com/shots/26781374-Smart-Home-Mobile-App-Design-Sentry)
-
-Code 👉 https://github.com/jacksonmafra-umain/SentrySmartHome
-
-\#Android #JetpackCompose #Kotlin #Koin #Gradle #DesignSystem
+Dribbble: https://dribbble.com/shots/26781374-Smart-Home-Mobile-App-Design-Sentry
+Repo: https://github.com/jacksonmafra-umain/SentrySmartHome
 
 ---
 
-## Long version (if you want a "see more" expanded post)
+## Long version (for the "see more" expand)
 
-🏠 **Sentry Smart Home** is live on GitHub.
+I had a free weekend and Phenomenon Studio's Sentry smart-home concept
+on my mind, so I rebuilt it in Jetpack Compose.
 
-Phenomenon Studio's concept was too pretty not to build. So I did — in
-Jetpack Compose, with every toolchain dial cranked to maximum.
+Everything you see is drawn in Compose — the circular dimmer is a
+Canvas with drag gestures, the hanging lamp is a handful of paths with
+a radial gradient, the curtains slide across the rod with a
+spring-ish tween, the waveform on the activities screen is a row of
+tiny lines. No bitmaps, no WebViews, no PNGs hiding under the UI.
 
-**What's inside**
+Under the hood it's a multi-module project — a design system, a fake
+data layer, a navigation contract, and four feature modules that
+don't know about each other. Convention plugins keep each module's
+build file tiny. Dependency injection is validated at compile time:
+if you forget to bind something, the build fails before you even hit
+run.
 
-🧪 **Bleeding-edge stack.** Kotlin 2.3.20 K2, Gradle 9.3.1, AGP 9.1
-alpha, JDK 21, Compose BOM 2026.03, Material 3.
+There's no backend. Every device is a StateFlow over an in-memory
+seed. That's deliberate — the point wasn't to model a real smart
+home, it was to put together the kind of scaffolding I'd want on day
+one of a production app.
 
-🪝 **Koin Compiler Plugin 1.0.0-RC1.** No KSP — the Kotlin compiler
-validates every `@Singleton` / `@KoinViewModel` at build time. If a
-binding is missing, the build fails. Compile-time safety for DI, finally.
+Also spent some time making the repo friendly to coding agents — a
+CLAUDE.md at the root, a docs folder mirrored to the wiki, previews
+on every component, crisp module boundaries. If you drop Claude Code,
+Cursor or Aider into this repo they should feel oriented in about
+thirty seconds.
 
-🧩 **Real multi-module architecture.** `:app` at the top, four
-`:core:*` libraries (designsystem, ui, data, navigation) and four
-`:feature:*` modules that only depend on core. Convention plugins in a
-composite build keep each module file ~10 lines.
+All design credit to Phenomenon Studio. I just translated their
+concept into Kotlin.
 
-🎛 **Custom Compose Canvas controls.** A circular dimmer with drag
-gestures, a vertical cold→warm temperature slider, a curtain
-illustration that slides on the rod with `animateFloatAsState`, a
-waveform visualisation, an emergency call pill with three animated
-chevrons.
+Dribbble: https://dribbble.com/shots/26781374-Smart-Home-Mobile-App-Design-Sentry
+Code: https://github.com/jacksonmafra-umain/SentrySmartHome
 
-🌅 **Production-quality plumbing.** Edge-to-edge with
-`safeDrawingPadding` on every screen, a proper Core Splashscreen
-handoff, an adaptive launcher icon, type-safe Navigation Compose with
-`@Serializable` routes, and a `@SentryPreview` multi-preview on every
-reusable component.
-
-🤖 **Agent-friendly.** There's a `CLAUDE.md` at the repo root and a
-`docs/` folder + mirrored Wiki, all written for LLMs to read in
-isolation. Claude Code / Cursor / Aider will feel at home.
-
-No real IoT, no real backend — every device is a `StateFlow` over an
-in-memory seed. The point isn't the data, it's the architecture.
-
-All visual design is © **[Phenomenon Studio](https://phenomenon.studio/)**.
-The original concept is on [Dribbble](https://dribbble.com/shots/26781374-Smart-Home-Mobile-App-Design-Sentry) — give them the credit they deserve.
-
-👉 https://github.com/jacksonmafra-umain/SentrySmartHome
-
-Open to feedback, PRs, and conversations about whether Gradle 9 + AGP 9
-alpha was a good idea.
-
-\#Android #JetpackCompose #Kotlin #Koin #Gradle #Compose #DesignSystem #MultiModule #DI
+Happy to talk architecture, Compose tricks, or whether I went
+overboard on module splits.
