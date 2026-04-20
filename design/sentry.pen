@@ -4,14 +4,546 @@
     {
       "type": "frame",
       "id": "bi8Au",
-      "x": 0,
-      "y": 0,
-      "name": "Frame",
+      "x": -692,
+      "y": -351,
+      "name": "Sentry Smart Home — User Flow",
       "clip": true,
-      "width": 800,
-      "height": 600,
-      "fill": "#FFFFFF",
-      "layout": "none"
+      "width": 1600,
+      "height": 900,
+      "fill": "#0A0A0C",
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "6qXR1",
+          "x": 40,
+          "y": 24,
+          "name": "title",
+          "fill": "#F5F5F7",
+          "content": "Sentry Smart Home — User Flow",
+          "fontFamily": "Inter",
+          "fontSize": 24,
+          "fontWeight": "SemiBold"
+        },
+        {
+          "type": "text",
+          "id": "TLYIb",
+          "x": 40,
+          "y": 58,
+          "name": "subtitle",
+          "fill": "#86868E",
+          "content": "Design © Phenomenon Studio · Compose demo by Jackson",
+          "fontFamily": "Inter",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "X2oV0",
+          "x": 120,
+          "y": 380,
+          "name": "Home",
+          "width": 220,
+          "height": 160,
+          "fill": "#14141A",
+          "cornerRadius": 20,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#FF6B4A"
+          },
+          "layout": "vertical",
+          "gap": 6,
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "NB4el",
+              "fill": "#F5F5F7",
+              "content": "HOME",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "SemiBold"
+            },
+            {
+              "type": "text",
+              "id": "WNzL6",
+              "fill": "#B5B5BC",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "Sia's home dashboard",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "or9y9",
+              "fill": "#86868E",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "• doorbell feed\n• device cards\n• emergency pill\n• bottom dock",
+              "lineHeight": 1.4,
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "9IlQM",
+          "x": 560,
+          "y": 120,
+          "name": "Activities",
+          "width": 220,
+          "height": 140,
+          "fill": "#14141A",
+          "cornerRadius": 20,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#2A2A31"
+          },
+          "layout": "vertical",
+          "gap": 6,
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "PhiwJ",
+              "fill": "#F5F5F7",
+              "content": "Activities",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "SemiBold"
+            },
+            {
+              "type": "text",
+              "id": "0poLG",
+              "fill": "#B5B5BC",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "waveform + event feed",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "nmLhN",
+              "fill": "#86868E",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "Live / Activities(3) / Devices tabs",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "HkJRQ",
+          "x": 120,
+          "y": 700,
+          "name": "Device Hub",
+          "width": 220,
+          "height": 140,
+          "fill": "#14141A",
+          "cornerRadius": 20,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#2A2A31"
+          },
+          "layout": "vertical",
+          "gap": 6,
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "GAqnv",
+              "fill": "#F5F5F7",
+              "content": "Device Hub",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "SemiBold"
+            },
+            {
+              "type": "text",
+              "id": "i0n6c",
+              "fill": "#B5B5BC",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "one-hub hero dimmer",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "aMTXL",
+              "fill": "#86868E",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "mic · cam · speaker · power",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wr6Cp",
+          "x": 820,
+          "y": 340,
+          "name": "Room (Bedroom)",
+          "width": 620,
+          "height": 260,
+          "fill": "#14141A",
+          "cornerRadius": 20,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#2A2A31"
+          },
+          "layout": "vertical",
+          "gap": 14,
+          "padding": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "9vAWR",
+              "fill": "#F5F5F7",
+              "content": "Room (Bedroom)",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "SemiBold"
+            },
+            {
+              "type": "text",
+              "id": "sYaxc",
+              "fill": "#B5B5BC",
+              "textGrowth": "fixed-width",
+              "width": 580,
+              "content": "Three inner tabs — no back-stack entry when switching",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "wEXJE",
+              "name": "panes",
+              "width": "fill_container",
+              "height": 140,
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "gepKt",
+                  "name": "light",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#1F1F26",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FF6B4A"
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "4tyJl",
+                      "fill": "#F5F5F7",
+                      "content": "Main light",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "SemiBold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YuAj2",
+                      "fill": "#B5B5BC",
+                      "content": "circular dimmer",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "a4AVd",
+                      "fill": "#B5B5BC",
+                      "content": "color swatches",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "blkFv",
+                      "fill": "#B5B5BC",
+                      "content": "Timer / Power",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "RjVUQ",
+                  "name": "thermo",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#1F1F26",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#2A2A31"
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "drR8m",
+                      "fill": "#F5F5F7",
+                      "content": "Thermostat",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "SemiBold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gR1wQ",
+                      "fill": "#B5B5BC",
+                      "content": "22°C · 78% humidity",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "JGS4x",
+                      "fill": "#B5B5BC",
+                      "content": "vertical temp slider",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xgbPj",
+                      "fill": "#B5B5BC",
+                      "content": "Heating / Cooling",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "C7aoB",
+                  "name": "curt",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#1F1F26",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#2A2A31"
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uMiRh",
+                      "fill": "#F5F5F7",
+                      "content": "Curtains",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "SemiBold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "6aIDy",
+                      "fill": "#B5B5BC",
+                      "content": "curtain illustration",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "doR3E",
+                      "fill": "#B5B5BC",
+                      "content": "brightness slider",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FfDSS",
+                      "fill": "#B5B5BC",
+                      "content": "Open · Half · Closed · Auto",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "id": "DDv2U",
+          "x": 340,
+          "y": 200,
+          "name": "arrowHomeAct",
+          "width": 220,
+          "height": 230,
+          "stroke": {
+            "align": "center",
+            "thickness": 2,
+            "cap": "round",
+            "fill": "#FF6B4A"
+          }
+        },
+        {
+          "type": "text",
+          "id": "Dv7su",
+          "x": 360,
+          "y": 250,
+          "fill": "#FF6B4A",
+          "content": "tap 🔔",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "line",
+          "id": "6rN82",
+          "x": 340,
+          "y": 460,
+          "name": "arrowHomeRoom",
+          "width": 480,
+          "height": 10,
+          "stroke": {
+            "align": "center",
+            "thickness": 2,
+            "cap": "round",
+            "fill": "#FF6B4A"
+          }
+        },
+        {
+          "type": "text",
+          "id": "5jD99",
+          "x": 500,
+          "y": 438,
+          "fill": "#FF6B4A",
+          "content": "tap room tab →",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "line",
+          "id": "02bcy",
+          "x": 230,
+          "y": 540,
+          "name": "arrowHomeHub",
+          "width": 2,
+          "height": 160,
+          "stroke": {
+            "align": "center",
+            "thickness": 2,
+            "cap": "round",
+            "fill": "#FF6B4A"
+          }
+        },
+        {
+          "type": "text",
+          "id": "sGTEk",
+          "x": 240,
+          "y": 610,
+          "fill": "#FF6B4A",
+          "content": "tap dock › all devices",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "6qMSq",
+          "x": 1200,
+          "y": 640,
+          "name": "Legend",
+          "width": 320,
+          "height": 120,
+          "fill": "#14141A",
+          "cornerRadius": 14,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#2A2A31"
+          },
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "48Rtg",
+              "fill": "#F5F5F7",
+              "content": "Legend",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "SemiBold"
+            },
+            {
+              "type": "text",
+              "id": "HwEDK",
+              "fill": "#FF6B4A",
+              "textGrowth": "fixed-width",
+              "width": 280,
+              "content": "━  primary navigation (push/pop back-stack)",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "OrIXd",
+              "fill": "#86868E",
+              "textGrowth": "fixed-width",
+              "width": 280,
+              "content": "┈  in-screen tab switch (no back-stack entry)",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "cG8AP",
+              "fill": "#B5B5BC",
+              "textGrowth": "fixed-width",
+              "width": 280,
+              "content": "HOME is the entry point (orange border)",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
