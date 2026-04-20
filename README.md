@@ -68,13 +68,28 @@ compile-time validated dependency injection, full screenshot-ready previews.
 > Design © [Phenomenon Studio](https://phenomenon.studio/). These are
 > Compose recreations, not the original Figma.
 
-| Home (Sia's home) | Activities feed | Device Hub |
-| :-: | :-: | :-: |
-| ![Home](https://github.com/user-attachments/assets/531eca00-6e00-4f8f-9cf9-fcf5521b237e) | ![Activities](https://github.com/user-attachments/assets/7d0cd1a2-a5d8-4101-911a-02b9096bb3fc) | ![Device Hub](https://github.com/user-attachments/assets/e8197f79-9c10-4560-a990-8d937c55cd6f) |
-
-| Room › Main light | Room › Thermostat | Room › Curtains |
-| :-: | :-: | :-: |
-| ![Light](https://github.com/user-attachments/assets/6bece482-672e-415c-a11b-1fa399ca726f) | ![Thermostat](https://github.com/user-attachments/assets/f35d4580-5285-4814-b3f3-9a38bc8aef18) | ![Curtains](https://github.com/user-attachments/assets/e9723456-a8e2-4e44-a955-3a8b23394f7f) |
+<table>
+  <tr>
+    <td align="center" width="33%"><strong>Home — Sia's home</strong></td>
+    <td align="center" width="33%"><strong>Activities feed</strong></td>
+    <td align="center" width="33%"><strong>Device Hub</strong></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/531eca00-6e00-4f8f-9cf9-fcf5521b237e" alt="Home" width="100%" /></td>
+    <td><img src="https://github.com/user-attachments/assets/7d0cd1a2-a5d8-4101-911a-02b9096bb3fc" alt="Activities" width="100%" /></td>
+    <td><img src="https://github.com/user-attachments/assets/e8197f79-9c10-4560-a990-8d937c55cd6f" alt="Device Hub" width="100%" /></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Room › Main light</strong></td>
+    <td align="center"><strong>Room › Thermostat</strong></td>
+    <td align="center"><strong>Room › Curtains</strong></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/6bece482-672e-415c-a11b-1fa399ca726f" alt="Main light" width="100%" /></td>
+    <td><img src="https://github.com/user-attachments/assets/f35d4580-5285-4814-b3f3-9a38bc8aef18" alt="Thermostat" width="100%" /></td>
+    <td><img src="https://github.com/user-attachments/assets/e9723456-a8e2-4e44-a955-3a8b23394f7f" alt="Curtains" width="100%" /></td>
+  </tr>
+</table>
 
 User flow diagram → [`docs/User-Flow.md`](docs/User-Flow.md) (Pencil source at
 `design/sentry.pen`).
